@@ -1,7 +1,10 @@
 const express = require('express');
-const User = require('../models/User');
 const router = express.Router();
-router.post("/register", (req, res) => {
+
+const User = require('../models/User');
+
+
+router.post("/register", (req, res, next) => {
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
@@ -16,7 +19,7 @@ router.post("/register", (req, res) => {
       .catch((err) => console.log(err));
   });
   
-  router.post("/register", (req, res) => {
+  router.post("/register", (req, res, next) => {
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,

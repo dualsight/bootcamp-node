@@ -1,9 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require('./controllers/routes');
-const app = express();
-app.use(express.json());
-app.use('/register', router);
+const register = require('./controllers/routes');
+
 
 
 
@@ -23,3 +21,10 @@ mongoose.connection
     console.log("Database connection error:", err);
     process.exit(1);
   });
+
+
+const app = express();
+
+app.use(express.json());
+
+app.use('/register', register);
